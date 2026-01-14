@@ -21,12 +21,21 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 50px;
+  padding: 8px 20px;
   margin-top: -40px;
 }
 
 .logo-left img {
-  height: 200px;
+  height: 120px;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 8px 50px;
+  }
+  .logo-left img {
+    height: 200px;
+  }
 }
 
 .lang-switch span {
@@ -45,11 +54,18 @@ header {
   align-items: center;
   text-align: center;
   gap: 10px;
+  padding: 0 15px;
 }
 
 
 .phrase {
-  margin-top: -180px;
+  margin-top: -80px;
+}
+
+@media (min-width: 768px) {
+  .phrase {
+    margin-top: -180px;
+  }
 }
 
 .phrase img {
@@ -60,9 +76,15 @@ header {
 
 .logo-stack {
   position: relative;
-  width: 74vw;
+  width: 85vw;
   max-width: 760px;
   aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 768px) {
+  .logo-stack {
+    width: 74vw;
+  }
 }
 
 .logo-stack img {
@@ -84,20 +106,34 @@ header {
 
 .about {
   max-width: 1100px;
-  margin-top: -220px;
-  padding: 0 30px;
+  margin-top: -100px;
+  padding: 0 20px;
 }
 
 .about h2 {
-  font-size: 56px;
+  font-size: 36px;
   color: #3b6fd8;
   margin-bottom: 16px;
 }
 
 .about p {
-  font-size: 22px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.7;
   color: #e0e6f3;
+}
+
+@media (min-width: 768px) {
+  .about {
+    margin-top: -220px;
+    padding: 0 30px;
+  }
+  .about h2 {
+    font-size: 56px;
+  }
+  .about p {
+    font-size: 22px;
+    line-height: 1.8;
+  }
 }
 
 .socials {
@@ -124,8 +160,30 @@ header {
 
 .members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 80px;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .members {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 80px;
+    max-width: none;
+  }
+  
+  .member-leader {
+    order: 0;
+  }
+  
+  .member:nth-child(2) {
+    order: -1;
+  }
+  
+  .member:nth-child(3) {
+    order: 1;
+  }
 }
 
 .member img {
@@ -165,7 +223,7 @@ footer {
 
 <header>
   <div class="logo-left">
-    <img src="taqaddumtech.github.io/Logo.svg" alt="Logo">
+    <img src="Logo.svg" alt="Logo">
   </div>
 
   <div class="lang-switch">
@@ -177,13 +235,13 @@ footer {
 <div class="hero">
 
   <div class="phrase">
-    <img src="taqaddumtech.github.io/phrase.svg" alt="Phrase">
+    <img src="phrase.svg" alt="Phrase">
   </div>
 
   <div class="logo-stack">
-    <img src="taqaddumtech.github.io/person.svg" class="person">
-    <img src="taqaddumtech.github.io/path.svg" class="path">
-    <img src="taqaddumtech.github.io/goal.svg" class="goal">
+    <img src="person.svg" class="person">
+    <img src="path.svg" class="path">
+    <img src="goal.svg" class="goal">
   </div>
 
   <div class="about">
@@ -205,18 +263,18 @@ footer {
   <h2 id="team-title">People behind this</h2>
 
   <div class="members">
+    <div class="member member-leader">
+      <img src="member2.jpg">
+      <h3>Zaid Alkhear Aburumman</h3>
+      <p id="role2">Founder & Team Leader</p>
+      <a href="https://www.linkedin.com/in/zaid-aburumman-254b28298/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+
     <div class="member">
       <img src="member1.jpg">
       <h3>Mohammad Rashdan</h3>
       <p id="role1">Founder</p>
       <a href="https://www.linkedin.com/in/mohammedrashdan/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-
-    <div class="member">
-      <img src="member2.jpg">
-      <h3>Zaid Alkhear Aburumman</h3>
-      <p id="role2">Founder & Team Leader</p>
-      <a href="https://www.linkedin.com/in/zaid-aburumman-254b28298/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
 
     <div class="member">
@@ -256,5 +314,4 @@ function setLang(lang) {
 </script>
 
 </body>
-
 </html>
