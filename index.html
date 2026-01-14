@@ -39,11 +39,22 @@ header {
 }
 
 .lang-switch span {
-  margin-left: 26px;
+  margin-left: 15px;
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   color: #e6ebff;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.lang-switch span:hover {
+  color: #3b6fd8;
+}
+
+.lang-switch span.active {
+  color: #3b6fd8;
+  text-decoration: underline;
 }
 
 
@@ -54,17 +65,19 @@ header {
   align-items: center;
   text-align: center;
   gap: 10px;
-  padding: 0 15px;
+  padding: 0;
 }
 
 
 .phrase {
-  margin-top: -80px;
+  margin-top: 20px;
+  margin-bottom: -50px;
 }
 
 @media (min-width: 768px) {
   .phrase {
-    margin-top: -180px;
+    margin-top: -80px;
+    margin-bottom: -100px;
   }
 }
 
@@ -79,11 +92,13 @@ header {
   width: 85vw;
   max-width: 760px;
   aspect-ratio: 1 / 1;
+  margin-top: -20px;
 }
 
 @media (min-width: 768px) {
   .logo-stack {
     width: 74vw;
+    margin-top: -60px;
   }
 }
 
@@ -106,7 +121,7 @@ header {
 
 .about {
   max-width: 1100px;
-  margin-top: -100px;
+  margin-top: -220px;
   padding: 0 20px;
 }
 
@@ -124,7 +139,6 @@ header {
 
 @media (min-width: 768px) {
   .about {
-    margin-top: -220px;
     padding: 0 30px;
   }
   .about h2 {
@@ -227,8 +241,8 @@ footer {
   </div>
 
   <div class="lang-switch">
-    <span onclick="setLang('en')">EN</span>
-    <span onclick="setLang('ar')">AR</span>
+    <span id="lang-en" class="active" onclick="setLang('en')">EN</span>
+    <span id="lang-ar" onclick="setLang('ar')">AR</span>
   </div>
 </header>
 
@@ -292,7 +306,12 @@ footer {
 
 <script>
 function setLang(lang) {
+  // Update active state
+  document.getElementById('lang-en').classList.remove('active');
+  document.getElementById('lang-ar').classList.remove('active');
+  
   if (lang === 'ar') {
+    document.getElementById('lang-ar').classList.add('active');
     document.getElementById('about-title').textContent = 'من نحن';
     document.getElementById('about-text').textContent =
     "نحن فريق طلابي في جامعة اليرموك نركز على تطوير مهارات طلاب الجامعة وكل من يهتم بالمجالات التقنية والاجتماعية. ننظم ورش تدريبية وفعاليات مؤثرة تعزز المعرفة وتخلق فرصًا عملية حقيقية. نهدف إلى بناء مجتمع قادر على التعلم والتعاون وصناعة تأثير ملموس في عالم مليء بالتحديات"
@@ -302,6 +321,7 @@ function setLang(lang) {
     document.getElementById('role2').textContent = 'مؤسس وقائد الفريق';
     document.getElementById('role3').textContent = 'مؤسس';
   } else {
+    document.getElementById('lang-en').classList.add('active');
     document.getElementById('about-title').textContent = 'Who are we';
     document.getElementById('about-text').textContent =
       "We are a student team at Yarmouk University focused on developing the skills of our university's students and anyone interested in technical and social fields. We organize training workshops and impactful events that enhance knowledge and create real practical opportunities. Our focus is to build a community capable of learning, collaborating, and making a tangible impact in a world full of challenges.";
